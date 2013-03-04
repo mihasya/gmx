@@ -7,7 +7,7 @@ import (
 )
 
 func init() {
-	Publish("os.args", osArgs)
+	Registry("os")("args", osArgs)
 }
 
 func osArgs() interface{} {

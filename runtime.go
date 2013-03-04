@@ -7,13 +7,13 @@ import "runtime"
 var memstats runtime.MemStats
 
 func init() {
-	Publish("runtime.gomaxprocs", runtimeGOMAXPROCS)
-	Publish("runtime.numcgocall", runtimeNumCgoCall)
-	Publish("runtime.numcpu", runtimeNumCPU)
-	Publish("runtime.numgoroutine", runtimeNumGoroutine)
-	Publish("runtime.version", runtimeVersion)
-
-	Publish("runtime.memstats", runtimeMemStats)
+	reg := Registry("runtime")
+	reg("gomaxprocs", runtimeGOMAXPROCS)
+	reg("numcgocall", runtimeNumCgoCall)
+	reg("numcpu", runtimeNumCPU)
+	reg("numgoroutine", runtimeNumGoroutine)
+	reg("version", runtimeVersion)
+	reg("memstats", runtimeMemStats)
 }
 
 func runtimeGOMAXPROCS() interface{} {

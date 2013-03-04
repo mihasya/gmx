@@ -1,9 +1,9 @@
 package main
 
-import "gmx"
+import "github.com/davecheney/gmx"
 
 func init() {
-	gmx.Publish("hello", func() interface{} {
+	gmx.Registry("gmx.example")("hello", func() interface{} {
 		return "world"
 	})
 }
